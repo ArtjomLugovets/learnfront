@@ -3,3 +3,7 @@ $bgcolor: black;
 body {
     background-color: color.scale($bgcolor, $lightness: 67%);
 }
+
+div {
+    background-color: white;
+}
