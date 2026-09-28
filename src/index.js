@@ -1,16 +1,6 @@
-let button = document.getElementById('button');
-console.log({button});
-button.addEventListener('click', () => {
-    if(button.classList.contains('is-primary')) {
-        button.classList.replace('is-primary', 'is-warning');
-    } else {
-        button.classList.replace('is-warning', 'is-primary');
-    }
-});
+import { createApp } from 'vue';
 
-let input = document.querySelector('#input');
-let reverseText = document.querySelector('#reverse-text');
+import App from './App.vue';
 
-input.addEventListener('input', () => {
-    reverseText.innerHTML = input.value.split('').reverse().join('');
-});
+const app = createApp(App);
+app.mount('#app');
