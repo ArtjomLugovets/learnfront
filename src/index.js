@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { createMemoryHistory, createRouter } from 'vue-router';
+import { createMemoryHistory, createWebHashHistory, createWebHistory, createRouter } from 'vue-router';
 
 import ToDo from './pages/Todo.vue';
 import Modals from './pages/Modals.vue';
@@ -10,7 +10,7 @@ const routes = [
 ];
 
 export const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 });
 
