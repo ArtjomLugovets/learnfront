@@ -14,7 +14,8 @@ defineProps(['items', 'title']);
           'is-warning': item.importance === 'medium',
           'is-danger': item.importance === 'high'
         }">
-          {{ item.importance }}
+
+        {{ item.importance }}
         </span>
 
         <input type="checkbox" v-model="item.isDone">
