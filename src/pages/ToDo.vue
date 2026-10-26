@@ -23,8 +23,30 @@ function  add(){
   newItem.value = '';
 }
 
-let doneItems = computed(() => items.value.filter(item => item.isDone));
-let toDoItems = computed(() => items.value.filter(item => !item.isDone));
+let doneItems = computed(() => 
+  [...items.value]
+    .filter(item => item.isDone)
+    .sort((a, b) => {
+      const importanceOrder = { 'high': 1, 'medium': 2, 'low': 3 };
+      return importanceOrder[a.importance] - importanceOrder[b.importance];
+    })
+  );
+  
+let toDoItems = computed(() => 
+  [...items.value]
+    .filter(item => !item.isDone)
+    .sort((a, b) => {
+      const importanceOrder = { 'high': 1, 'medium': 2, 'low': 3 };
+      return importanceOrder[a.importance] - importanceOrder[b.importance];
+    })
+);
+
+let sortedItems = computed(() => 
+  [...items.value].sort((a, b) => {
+    const importanceOrder = { 'high': 1, 'medium': 2, 'low': 3 };
+    return importanceOrder[a.importance] - importanceOrder[b.importance];
+}));
+
 </script>
 
 <template>
@@ -51,7 +73,7 @@ let toDoItems = computed(() => items.value.filter(item => !item.isDone));
         </div>
 
     </div>
-    <ItemList :items="items" title="All Items"></ItemList>
+    <ItemList :items="sortedItems" title="All Items"></ItemList>
     <ItemList :items="doneItems" title="Done Items"></ItemList>
     <ItemList :items="toDoItems" title="ToDo Items"></ItemList>
   </div>
