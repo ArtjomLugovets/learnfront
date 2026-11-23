@@ -28,3 +28,4 @@ import Message from '../components/Message.vue';
         </Message>
     </main>
 </template>
+bun
