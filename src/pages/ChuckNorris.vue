@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 let joke = ref(''); 
 
-let res = fetch("https://api.chucknorris.io/jokes/random");
+let res = await fetch("https://api.chucknorris.io/jokes/random");
 joke.value = await res.json();
 </script>
 
